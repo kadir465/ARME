@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | ARME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="contact-body">
+<header class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand"><img src="arme-logo.png" alt="ARME" class="nav-logo-img"></a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html" class="nav-link">Ana Sayfa</a>
+            <a href="hakkimizda.html" class="nav-link">Hakkımızda</a>
+            <a href="bilgilendirme.html" class="nav-link">Bilgilendirme</a>
+            <a href="sorular.html" class="nav-link">Sorular</a>
+            <a href="iletisim.html" class="nav-link active">İletişim</a>
+        </nav>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<div class="contact-page-wrapper">
+    <div class="contact-grid">
+        <!-- Left: Team -->
+        <div>
+            <div class="card">
+                <h2><i class="fas fa-users" style="color:var(--accent);margin-right:.5rem"></i> Proje Ekibi</h2>
+                <div class="team-list-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">ME</div>
+                        <div class="team-info">
+                            <strong>Mert Erimez</strong>
+                            <a href="mailto:mert.erimez@ogr.deu.edu.tr">mert.erimez@ogr.deu.edu.tr</a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">EÇ</div>
+                        <div class="team-info">
+                            <strong>Eyüp Çağlar Emre</strong>
+                            <a href="mailto:eyupcaglar.emre@ogr.deu.edu.tr">eyupcaglar.emre@ogr.deu.edu.tr</a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">AK</div>
+                        <div class="team-info">
+                            <strong>Arda Kınık</strong>
+                            <a href="mailto:arda.kinik@ogr.deu.edu.tr">arda.kinik@ogr.deu.edu.tr</a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">ND</div>
+                        <div class="team-info">
+                            <strong>Nehir Doğan</strong>
+                            <a href="mailto:dogan.nehir@ogr.deu.edu.tr">dogan.nehir@ogr.deu.edu.tr</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3 style="color:white; margin-bottom: 1rem;">Harekete Geç</h3>
+                    <ul>
+                        <li>Eşit haklara saygı duyulmasına katkı sağlayın.</li>
+                        <li>Günlük yaşamda cinsiyetçi davranışlardan kaçının.</li>
+                        <li>Çevrimiçi platformlarda farkındalık yaratın.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+            <div class="card">
+                <h2><i class="fas fa-envelope-open-text" style="color:var(--accent);margin-right:.5rem"></i> İletişim Formu</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ad ve Soyad</label>
+                        <input type="text" id="name" name="name" placeholder="Adınız ve soyadınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta Adresi</label>
+                        <input type="email" id="email" name="email" placeholder="ornek@eposta.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Konu</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Lütfen seçiniz...</option>
+                            <option>Soru Sormak İstiyorum</option>
+                            <option>Veri Kaynakları Hakkında</option>
+                            <option>Gönüllü Destek</option>
+                            <option>Akademik İşbirliği</option>
+                            <option>Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Mesajı Gönder
+                    </button>
+                    <div class="form-success" id="form-success">
+                        <i class="fas fa-check-circle"></i> Mesajınız başarıyla iletildi. En kısa sürede size dönüş yapacağız.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">ARME</div>
+            <p>Awareness, Rights, Mutuality, Equality — SDG 5 Farkındalık Platformu</p>
+            <p class="footer-sub">Dokuz Eylül Üniversitesi — 2026</p>
+        </div>
+        <div class="footer-links"><h4>Sayfalar</h4><ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="bilgilendirme.html">Bilgilendirme</a></li>
+            <li><a href="sorular.html">Sorular</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Kaynaklar</h4><ul>
+            <li><a href="https://turkiye.unwomen.org/tr" target="_blank">UN Women TR</a></li>
+            <li><a href="https://www.globalcompactturkiye.org/" target="_blank">Global Compact</a></li>
+            <li><a href="https://ceidizler.ceid.org.tr/" target="_blank">CEİD İzler</a></li>
+        </ul></div>
+        <div class="footer-contact"><h4>Ekip İletişim</h4>
+            <p><i class="fas fa-university"></i> Dokuz Eylül Üniversitesi</p>
+            <p><i class="fas fa-envelope"></i> mert.erimez@ogr.deu.edu.tr</p>
+            <p><i class="fas fa-envelope"></i> arda.kinik@ogr.deu.edu.tr</p>
+        </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 ARME Projesi. Tüm hakları saklıdır.</p></div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
+
