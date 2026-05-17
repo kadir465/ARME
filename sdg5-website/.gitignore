@@ -1,5 +1,4 @@
 # Local environment variables
-env.js
 .env
 .env.local
 .env.*.local
