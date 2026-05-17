@@ -2,7 +2,7 @@
 
 // API anahtarını env.js dosyasından alıyoruz
 let API_KEY = typeof ARME_CONFIG !== 'undefined' ? ARME_CONFIG.GEMINI_API_KEY : "";
-let GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+let GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 // Eğer env.js yüklenemediyse uyarı ver
 if (!API_KEY) {
