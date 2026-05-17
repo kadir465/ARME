@@ -185,12 +185,85 @@ function initNav() {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('active');
+        }));
     }
     window.addEventListener('scroll', () => {
         document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
     });
+}
+
+// ---- TRANSLATION ----
+function initTranslation() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { top: 0 !important; }
+        .goog-te-banner-frame { display: none !important; }
+        #goog-gt-tt { display: none !important; }
+        .goog-tooltip { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+        .skiptranslate > iframe.goog-te-banner-frame { display: none !important; }
+    `;
+    document.head.appendChild(style);
+
+    const gtContainer = document.createElement('div');
+    gtContainer.id = 'google_translate_element';
+    gtContainer.style.display = 'none';
+    document.body.appendChild(gtContainer);
+
+    window.googleTranslateElementInit = function() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'en,tr',
+            autoDisplay: false
+        }, 'google_translate_element');
+    };
+
+    const script = document.createElement('script');
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    document.body.appendChild(script);
+
+    const navLinks = document.getElementById('nav-links');
+    if (navLinks) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.id = 'lang-toggle';
+        toggleBtn.className = 'btn-ghost';
+        toggleBtn.style.cssText = 'padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.85rem; margin-left: 0.5rem; white-space: nowrap;';
+        toggleBtn.innerHTML = '<i class="fas fa-language"></i> EN/TR';
+        navLinks.appendChild(toggleBtn);
+
+        let currentLang = localStorage.getItem('arme_lang') || 'tr';
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('arme_lang', currentLang);
+            
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = currentLang;
+                select.dispatchEvent(new Event('change'));
+            }
+        });
+
+        if (currentLang === 'en') {
+            const checkInterval = setInterval(() => {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.value = 'en';
+                    select.dispatchEvent(new Event('change'));
+                    clearInterval(checkInterval);
+                }
+            }, 500);
+            setTimeout(() => clearInterval(checkInterval), 5000);
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -198,4 +271,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNews();
     initChat();
     initContactForm();
+    initTranslation();
 });
